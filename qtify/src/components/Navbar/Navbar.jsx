@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className={styles.Navbar}>
       <Logo />
-      <Search text="  Search album of your choice" />
+      <Search />
       <Button text="Give Feedback" />
     </nav>
   );

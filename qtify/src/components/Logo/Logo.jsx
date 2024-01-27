@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.svg";
+import styles from './Logo.module.css';
 
 const Logo = () => {
   return (
@@ -9,7 +10,7 @@ const Logo = () => {
         alt="logo"
         width={67}
         height={34}
-        style={{ marginLeft: "32px" }}
+        className={styles.Logo}
       />
     </>
   );

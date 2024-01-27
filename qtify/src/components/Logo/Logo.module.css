@@ -1,0 +1,6 @@
+.Logo{
+display: flex;
+align-items: center; /* Vertically center the logo */
+margin-left: 32px;
+
+  }

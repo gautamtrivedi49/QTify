@@ -11,6 +11,7 @@
   position: relative;
   margin-right: 30px;
   border: var(--color-primary) 1px;
+  font-family: 'Poppins', sans-serif;
 }
 @media (max-width: 768px) {
   .button {
