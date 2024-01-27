@@ -7,7 +7,7 @@ const Search = () => {
   return (
     <form className={wrapper}>
       <div>
-        <input className={search} placeholder="Search album of your choice" />
+      <input placeholder="Search a album of your choice" className={search} />
         </div>
         <div>
         <button className={searchButton} type="button">
