@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+.logo {
+  width: 212px;
+  height: 212px;
+}
+.typography {
+  margin-top: 60px;
+}

@@ -1,0 +1,20 @@
+.button {
+  background-color: var(--color-black);
+  color: var(--color-primary);
+  width: 170px;
+  height: 47px;
+  border-radius: 12px;
+  padding: 10px, 16px;
+  font-weight: 700;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 30px;
+  border: var(--color-primary) 1px;
+}
+@media (max-width: 768px) {
+  .button {
+    width: 100%; /* Full width on smaller screens */
+    margin-right: 0; /* No right margin on smaller screens */
+  }
+}

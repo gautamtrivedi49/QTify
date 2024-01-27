@@ -1,0 +1,18 @@
+.Navbar {
+  background-color: var(--color-primary);
+  height: 74px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .Navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+}
