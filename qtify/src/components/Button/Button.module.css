@@ -8,8 +8,6 @@
   font-weight: 700;
   gap: 10px;
   cursor: pointer;
-  position: relative;
-  margin-right: 30px;
   border: var(--color-primary) 1px;
   font-family: 'Poppins', sans-serif;
 }
