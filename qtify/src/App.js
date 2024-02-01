@@ -19,22 +19,29 @@ const App = () => {
     setValue(newValue);
   };
   const generateSongsData = (value) => {
-    let key;
     if (value === 0) {
       filteredData(songsData);
       return;
-    } else if (value === 1) {
-      key = "Rock";
-    } else if (value === 2) {
-      key = "Pop";
-    } else if (value === 3) {
-      key = "Jazz";
-    } else if (value === 4) {
-      key = "Blues";
     }
-    const res = songsData.filter((ele) => ele.genre.key === key);
-    filteredData(res);
+  
+    const genreMap = {
+      1: "rock",
+      2: "pop",
+      3: "jazz",
+      4: "blues",
+    };
+  
+    const selectedGenre = genreMap[value];
+  
+    if (selectedGenre) {
+      const filteredSongs = songsData.filter((song) =>
+        song.genre.key.toLowerCase() === selectedGenre
+      );
+      console.log(`Filtered Songs for ${selectedGenre}:`, filteredSongs);
+      filteredData(filteredSongs);
+    }
   };
+  
   useEffect(() => {
     generateSongsData(value);
   }, [value]);
