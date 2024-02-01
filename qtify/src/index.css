@@ -29,4 +29,6 @@ svg {
 .swiper-slide {
   width: auto !important;
 }
-
+.css-1aquho2-MuiTabs-indicator {
+  background-color: var(--color-primary) !important;
+}

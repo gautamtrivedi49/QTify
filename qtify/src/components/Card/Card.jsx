@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./Card.module.css";
 
 const Card = ({ data, type }) => {
-  const { wrapper, card, chip, titleWrapper, banner } = styles;
+  const { wrapper, card, chip, titleWrapper, banner, pill } = styles;
   const getCard = (type) => {
     switch (type) {
       case "album": {
@@ -27,6 +27,26 @@ const Card = ({ data, type }) => {
                 </div>
               </div>
             </Tooltip>
+          </>
+        );
+      }
+      case "song": {
+        const { image, likes, title } = data;
+        return (
+          <>
+            <div className={wrapper}>
+              <div className={card}>
+                <img src={image} alt="song" />
+                <div className={banner}>
+                  <div className={pill}>
+                    <p>{likes} Likes</p>
+                  </div>
+                </div>
+              </div>
+              <div className={titleWrapper}>
+                <p>{title}</p>
+              </div>
+            </div>
           </>
         );
       }

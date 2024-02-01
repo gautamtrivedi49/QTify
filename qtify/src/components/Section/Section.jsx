@@ -4,7 +4,16 @@ import { useState } from "react";
 import Card from "../Card/Card";
 import CircularProgress from "@mui/material/CircularProgress";
 import Carousel from "../Carousel/Carousel";
-const Section = ({ data, title, type }) => {
+import BasicTabs from "../Tabs/Tabs";
+const Section = ({
+  data,
+  title,
+  type,
+  value = 0,
+  handleChange = null,
+  filteredData = null,
+  filteredDataValues = [],
+}) => {
   const { header, toggleText, cardsWrapper, wrapper } = styles;
   const [carouselToggle, setCarouselToggel] = useState(true);
   const handleToggle = () => {
@@ -18,6 +27,9 @@ const Section = ({ data, title, type }) => {
           {!carouselToggle ? "Collapse All" : "Show All"}
         </h4>
       </div>
+      {type === "song" ? (
+        <BasicTabs value={value} handleChange={handleChange} />
+      ) : null}
       {data.length === 0 ? (
         <CircularProgress />
       ) : (
