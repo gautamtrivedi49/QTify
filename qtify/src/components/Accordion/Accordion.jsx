@@ -4,7 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import styles from "./Accordian.module.css";
+import styles from "./Accordion.module.css";
 
 export default function DisabledAccordion() {
   const { heading, wrapper, accordian, accordianText } = styles;

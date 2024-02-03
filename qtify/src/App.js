@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection/HeroSection";
 import { fetchTopAlbums } from "./api/api";
 import { fetchNewAlbums } from "./api/api";
 import { fetchSongs } from "./api/api";
-import DisabledAccordion from "./components/Accordian/Accordian";
+import DisabledAccordion from "./components/Accordion/Accordion";
 import Section from "./components/Section/Section";
 import styles from "./App.module.css";
 
@@ -19,29 +19,22 @@ const App = () => {
     setValue(newValue);
   };
   const generateSongsData = (value) => {
+    let key;
     if (value === 0) {
       filteredData(songsData);
       return;
+    } else if (value === 1) {
+      key = "rock";
+    } else if (value === 2) {
+      key = "pop";
+    } else if (value === 3) {
+      key = "jazz";
+    } else if (value === 4) {
+      key = "blues";
     }
-  
-    const genreMap = {
-      1: "rock",
-      2: "pop",
-      3: "jazz",
-      4: "blues",
-    };
-  
-    const selectedGenre = genreMap[value];
-  
-    if (selectedGenre) {
-      const filteredSongs = songsData.filter((song) =>
-        song.genre.key.toLowerCase() === selectedGenre
-      );
-      console.log(`Filtered Songs for ${selectedGenre}:`, filteredSongs);
-      filteredData(filteredSongs);
-    }
+    const res = songsData.filter((ele) => ele.genre.key.toLowerCase() === key);
+    filteredData(res);
   };
-  
   useEffect(() => {
     generateSongsData(value);
   }, [value]);
