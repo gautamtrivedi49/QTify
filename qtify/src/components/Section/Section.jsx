@@ -5,20 +5,37 @@ import Card from "../Card/Card";
 import CircularProgress from "@mui/material/CircularProgress";
 import Carousel from "../Carousel/Carousel";
 import BasicTabs from "../Tabs/Tabs";
+
 const Section = ({
   data,
   title,
   type,
   value = 0,
   handleChange = null,
-  filteredData = null,
-  filteredDataValues = [],
 }) => {
   const { header, toggleText, cardsWrapper, wrapper } = styles;
-  const [carouselToggle, setCarouselToggel] = useState(true);
+  const [carouselToggle, setCarouselToggle] = useState(true);
+
   const handleToggle = () => {
-    setCarouselToggel(!carouselToggle);
+    setCarouselToggle(!carouselToggle);
   };
+
+  const filterDataByTab = (tabIndex) => {
+    console.log("Data:", data);
+    if (tabIndex === 0) {
+      return data; // Show all data for "All" tab
+    } else {
+      const key = ["", "rock", "pop", "jazz", "blues"][tabIndex];
+      console.log("Key:", key);
+      const filtered = data.filter((ele) => ele.genre && ele.genre.key === key);
+      console.log("Filtered Data:", filtered);
+      return filtered;
+    }
+  };
+  
+
+  const filteredData = filterDataByTab(value);
+
   return (
     <>
       <div className={header}>
@@ -36,14 +53,14 @@ const Section = ({
         <div className={cardsWrapper}>
           {!carouselToggle ? (
             <div className={wrapper}>
-              {data.map((ele) => (
-                <Card data={ele} type={type} />
+              {filteredData.map((ele) => (
+                <Card key={ele.id} data={ele} type={type} />
               ))}
             </div>
           ) : (
             <Carousel
               data={data}
-              renderComponent={(data) => <Card data={data} type={type} />}
+              renderComponent={(data) => <Card key={data.id} data={data} type={type} />}
             />
           )}
         </div>
